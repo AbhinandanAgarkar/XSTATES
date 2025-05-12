@@ -1,0 +1,11 @@
+select{
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 50px;
+}
+
+.menu{
+display:flex;
+justify-content: center;
+}   
+
