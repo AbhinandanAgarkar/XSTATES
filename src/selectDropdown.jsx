@@ -28,25 +28,50 @@ export default function SelectDropdown(){
     useEffect(()=>{
         async function fetchData () {
 
-            let response = await fetch(countriesUrl);
+            try{
+         let response = await fetch(countriesUrl);
             let data = await response.json();
             setCountries(data);
+            }
+
+            catch(e){
+                console.error(e)
+            }
         }
     fetchData(); }, [])
 
-    useEffect(()=>{ async function fetchData () {
+    useEffect(()=>{ 
+        
+        async function fetchData () {
+
+        try{
 
             let response = await fetch(statesUrl+ifCountrySelected+'/states');
             let data = await response.json();
             setStates(data);
+
+        }
+        catch(e){
+          console.error(e)
+        }
+
+
         }
     fetchData(); }, [ifCountrySelected])
 
-    useEffect(()=>{ async function fetchData () {
-
+    useEffect(()=>{ 
+        async function fetchData () {
+            
+             try{            
             let response = await fetch(cityUrl+ifCountrySelected+'/state='+ifStateSelected+'/cities');
             let data = await response.json();
             setCities(data);
+             }
+
+            catch(e){
+                console.error(e)
+            }
+
         }
     fetchData(); }, [ifCountrySelected, ifStateSelected])
 
